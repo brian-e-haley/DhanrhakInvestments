@@ -127,3 +127,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'home'  # TODO customize once groups are created https://stackoverflow.com/questions/38840366/no-url-to-redirect-to-either-provide-a-url-or-define-a-get-absolute-url-method
+LOGIN_URL = 'login'
