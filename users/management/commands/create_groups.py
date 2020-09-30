@@ -1,11 +1,6 @@
 from django.contrib.auth.models import Group
 from django.core.management.base import BaseCommand
 
-GROUPS = {'student', 'teacher'}
-APPS = {'profiles'}
-PERMISSIONS = {'add', 'change', 'delete', 'view'}
-MODELS = {'Quiz', 'Question', 'Option'}
-
 
 class Command(BaseCommand):
     help = 'Creates teacher and student groups.'
