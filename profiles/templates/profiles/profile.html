@@ -30,10 +30,10 @@
   </article>
   {% endif %}
   {% if user.groups.first.name == 'teacher' %}
-  <button class="btn btn-outline-info"
-          type="submit">
+  <a class="btn btn-secondary btn-sm mt-1 mb-1"
+     href="{% url 'quiz_create' %}">
     New quiz
-  </button>
+  </a>
   {% endif %}
 </div>
 {% endblock content %}
