@@ -1,9 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from profiles.models import Quiz
 
 
-class ProfileView(ListView):
+class ProfileView(LoginRequiredMixin, ListView):
     template_name = 'profiles/profile.html'
     model = Quiz
     context_object_name = 'quizzes'
