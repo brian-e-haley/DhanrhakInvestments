@@ -12,4 +12,4 @@ class CreateUserView(CreateView):
     template_name = 'users/register.html'
 
     def get_success_url(self):
-        return reverse('login')  # TODO swap to profile route
+        return reverse('login')
