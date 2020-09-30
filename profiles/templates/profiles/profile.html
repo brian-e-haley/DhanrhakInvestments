@@ -1,0 +1,39 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <h2 class="account-heading">Hello {{ user.username }}!</h2>
+      <p class="text-secondary">
+        You are currently enrolled as a {{user.groups.first.name }}.
+      </p>
+    </div>
+  </div>
+  <h4 class="border-bottom mb-4">Quizzes</h4>
+  {% if quizzes %}
+  {% for quiz in quizzes %}
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <h2><a class="article-title" href="#">{{ quiz.title }}</a></h2>
+      </div>
+      <p class="article-content">{{ quiz.description }}</p>
+    </div>
+  </article>
+  {% endfor %}
+  {% else %}
+  <article class="media content-section">
+    <div class="media-body">
+      <p class="article-content">You have no quizzes.</p>
+    </div>
+  </article>
+  {% endif %}
+  {% if user.groups.first.name == 'teacher' %}
+  <button class="btn btn-outline-info"
+          type="submit">
+    New quiz
+  </button>
+  {% endif %}
+</div>
+{% endblock content %}

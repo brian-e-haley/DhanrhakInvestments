@@ -2,7 +2,7 @@ from django.contrib.auth.models import Group
 from django.core.management.base import BaseCommand
 
 GROUPS = {'student', 'teacher'}
-APPS = {'quizzes'}
+APPS = {'profiles'}
 PERMISSIONS = {'add', 'change', 'delete', 'view'}
 MODELS = {'Quiz', 'Question', 'Option'}
 
