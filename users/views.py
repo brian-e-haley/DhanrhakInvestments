@@ -8,8 +8,8 @@ from users import forms as user_forms
 class CreateUserView(CreateView):
     """View to register users."""
     model = User
-    form_class = user_forms.UserCreationForm
+    form_class = user_forms.UserRegisterForm
     template_name = 'users/register.html'
 
     def get_success_url(self):
-        return reverse('login')
+        return reverse('login')  # TODO swap to profile route
