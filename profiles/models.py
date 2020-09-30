@@ -4,7 +4,7 @@ from django.db import models
 
 class Quiz(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     teacher = models.ForeignKey(get_user_model(), models.CASCADE)
 
     def __repr__(self):
