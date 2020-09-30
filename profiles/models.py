@@ -16,3 +16,8 @@ class Quiz(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+
+class Question(models.Model):
+    body = models.CharField(max_length=255)
+    category = models.
