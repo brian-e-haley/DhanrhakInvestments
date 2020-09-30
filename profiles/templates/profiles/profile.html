@@ -16,7 +16,12 @@
   <article class="media content-section">
     <div class="media-body">
       <div class="article-metadata">
-        <h2><a class="article-title" href="#">{{ quiz.title }}</a></h2>
+        <h2>
+          <a class="article-title"
+             href="{% url 'quiz_detail' quiz.pk %}">
+            {{ quiz.title }}
+          </a>
+        </h2>
       </div>
       <p class="article-content">{{ quiz.description }}</p>
     </div>
