@@ -10,4 +10,10 @@ urlpatterns = [
     path('quiz/<int:pk>/',
          profile_views.QuizDetailView.as_view(),
          name='quiz_detail'),
+    # path('quiz/<int:quiz>/question/mc/create', TODO
+    #      profile_views.McQuestionCreateView.as_view(),
+    #      name='mc_question_create'),
+    path('quiz/<int:quiz>/question/sa/create',
+         profile_views.SaQuestionCreateView.as_view(),
+         name='sa_question_create')
 ]

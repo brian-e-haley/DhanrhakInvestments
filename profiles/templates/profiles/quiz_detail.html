@@ -1,23 +1,33 @@
 {% extends "home/base.html" %}
 {% block content %}
-<article class="media content-section">
-  <div class="media-body">
-    <div class="article-metadata">
-      {% if quiz.teacher == user %}
-      <div>
-        <a class="btn btn-secondary btn-sm mt-1 mb-1 disable"
-           href="#">
-          Update <!-- TODO -->
-        </a>
-        <a class="btn btn-danger btn-sm mt-1 mb-1 disable"
-           href="#">
-          Delete <!-- TODO -->
-        </a>
-      </div>
-      {% endif %}
-      <h2 class="article-title">{{ quiz.title }}</h2>
-      <p class="article-content">{{ quiz.description }}</p>
-    </div>
-  </div>
-</article>
+{% if quiz.teacher == user %}
+<div>
+  <a class="btn btn-secondary btn-sm mt-1 mb-1 disable"
+     href="#">
+    Update <!-- TODO -->
+  </a>
+  <a class="btn btn-danger btn-sm mt-1 mb-1 disable"
+     href="#">
+    Delete <!-- TODO -->
+  </a>
+</div>
+{% endif %}
+{% include 'profiles/quiz_data.html' %}
+{% if quiz.questions.all|length > 0 %}
+{% for question in quiz.questions.all %}
+{% include 'profiles/question_data.html' %}
+{% endfor %}
+{% else %}
+<p>You have not created any questions for this quiz yet!</p>
+{% endif %}
+{% if user.groups.first.name == 'teacher' %}
+<a class="btn btn-secondary btn-sm mt-1 mb-1"
+   href="{% url 'sa_question_create' quiz.pk %}">
+  New short answer question
+</a>
+<a class="btn btn-secondary btn-sm mt-1 mb-1"
+   href="{% url 'mc_question_create' quiz.pk %}">
+  New multiple choice question
+</a>
+{% endif %}
 {% endblock content %}

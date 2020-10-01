@@ -1,0 +1,18 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'profiles/quiz_data.html' %}
+<div class="content-section">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Question form</legend>
+      {{ form|crispy }}
+    </fieldset>
+    <button class="btn btn-outline-info"
+            type="submit">
+      Create quiz
+    </button>
+  </form>
+</div>
+{% endblock content %}mc_question_form.html
