@@ -39,7 +39,7 @@ class SaQuestionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Question
     fields = ['question']
     context_object_name = 'question'
-    template_name = 'profiles/sa_question_form.html'
+    template_name = 'profiles/question_sa_form.html'
 
     def get_quiz(self):
         """
@@ -73,7 +73,7 @@ class McQuestionCreateView(LoginRequiredMixin,
     inlines = [OptionInline]
     fields = ['question']
     context_object_name = 'question'
-    template_name = 'profiles/mc_question_form.html'
+    template_name = 'profiles/question_mc_form.html'
 
     def get_quiz(self):
         """

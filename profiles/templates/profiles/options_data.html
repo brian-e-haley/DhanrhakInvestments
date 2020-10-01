@@ -1,0 +1,10 @@
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <h2>{{ option.text }}</h2>
+    </div>
+    {% if user.groups.first.name == 'teacher' %}
+    <p class="article-content">{{ option.correct }}</p>
+    {% endif %}
+  </div>
+</article>

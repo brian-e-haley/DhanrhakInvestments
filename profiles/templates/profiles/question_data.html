@@ -9,5 +9,8 @@
       </h4>
     </div>
     <p class="article-content">Type: {{ question.get_category_display }}</p>
+    {% for option in question.options.all %}
+    {% include 'profiles/options_data.html' %}
+    {% endfor %}
   </div>
 </article>

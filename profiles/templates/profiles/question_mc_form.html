@@ -9,10 +9,13 @@
       <legend class="border-bottom mb-4">Question form</legend>
       {{ form|crispy }}
       {% for formset in inlines %}
-      <legend class="border-bottom mb-4">Options</legend>
+      <legend class="border-bottom mb-4">Multiple choice options form</legend>
       {{ formset|crispy }}
       {% endfor %}
     </fieldset>
+    <input class="btn btn-outline-info"
+           type="submit"
+           value="New question"/>
   </form>
 </div>
 {% endblock content %}mc_question_form.html
