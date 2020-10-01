@@ -1,8 +1,13 @@
 <article class="media content-section">
   <div class="media-body">
     <div class="article-metadata">
-      <h4 class="article-title">{{ question.question }}</h4>
-      <p class="article-content">{{ question.category }}</p>
+      <h4>
+        <a class="article-title"
+           href="{% url 'question_detail' question.quiz.pk question.pk %}">
+          {{ question.question }}
+        </a>
+      </h4>
     </div>
+    <p class="article-content">Type: {{ question.get_category_display }}</p>
   </div>
 </article>

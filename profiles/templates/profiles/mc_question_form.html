@@ -8,11 +8,11 @@
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Question form</legend>
       {{ form|crispy }}
+      {% for formset in inlines %}
+      <legend class="border-bottom mb-4">Options</legend>
+      {{ formset|crispy }}
+      {% endfor %}
     </fieldset>
-    <button class="btn btn-outline-info"
-            type="submit">
-      Create question
-    </button>
   </form>
 </div>
 {% endblock content %}mc_question_form.html

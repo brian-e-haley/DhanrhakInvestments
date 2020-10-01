@@ -29,7 +29,8 @@ class Question(models.Model):
     quiz = models.ForeignKey(Quiz, models.CASCADE, 'questions')
 
     def get_absolute_url(self):
-        return reverse('home')  # TODO swap to question_detail once completed
+        return reverse('question_detail',
+                       kwargs={'quiz': self.quiz.pk, 'pk': self.pk})
 
     def __repr__(self):
         return str(self.question)

@@ -1,0 +1,19 @@
+{% extends "home/base.html" %}
+{% block content %}
+{% with quiz=question.quiz %}
+{% include 'profiles/quiz_data.html' %}
+{% endwith %}
+{% if question.quiz.teacher == user %}
+<div>
+  <a class="btn btn-secondary btn-sm mt-1 mb-1 disable"
+     href="#">
+    Update <!-- TODO -->
+  </a>
+  <a class="btn btn-danger btn-sm mt-1 mb-1 disable"
+     href="#">
+    Delete <!-- TODO -->
+  </a>
+</div>
+{% endif %}
+{% include 'profiles/question_data.html' %}
+{% endblock content %}
