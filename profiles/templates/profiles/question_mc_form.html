@@ -5,17 +5,38 @@
 <div class="content-section">
   <form method="POST">
     {% csrf_token %}
+    {{ formset.management_form }}
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Question form</legend>
       {{ form|crispy }}
-      {% for formset in inlines %}
-      <legend class="border-bottom mb-4">Multiple choice options form</legend>
-      {{ formset|crispy }}
-      {% endfor %}
+      <div id="formset_wrapper">
+        {% for formset in inlines %}
+        <legend class="border-bottom mb-4">Multiple choice options form</legend>
+        {{ formset|crispy }}
+        {% endfor %}
+      </div>
+      <div id="emptyform_wrapper" style="display: none">
+        {{ inlines.0.0|crispy }}
+      </div>
     </fieldset>
+    <input class="btn btn-default btn-outline-info"
+           id="add_more"
+           type="button"
+           value="Add More">
+    <br><br>
     <input class="btn btn-outline-info"
            type="submit"
            value="New question"/>
   </form>
 </div>
-{% endblock content %}mc_question_form.html
+<script>
+  $('#add_more').click(function () {
+    let total_form = $('#id_options-TOTAL_FORMS');
+    let form_idx = total_form.val();
+
+    $('#formset_wrapper').append($('#emptyform_wrapper').html().replace(/__prefix__/g, form_idx));
+    total_form.val(parseInt(form_idx)+1);
+  });
+
+</script>
+{% endblock content %}

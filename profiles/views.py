@@ -31,7 +31,7 @@ class QuizDetailView(LoginRequiredMixin, DetailView):
 class OptionInline(InlineFormSetFactory):
     model = Option
     fields = ['text', 'correct']
-    factory_kwargs = {'extra': 4,
+    factory_kwargs = {'extra': 1,
                       'can_delete': False}
 
 
